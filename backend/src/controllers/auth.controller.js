@@ -1,0 +1,67 @@
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const prisma = require('../config/prisma');
+
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await prisma.users.findUnique({
+            where: { email },
+            include: { students: true, teachers: true }
+        });
+
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password_hash);
+        if (!isMatch) {
+            return res.status(401).json({ error: 'Invalid email or password' });
+        }
+
+        const token = jwt.sign(
+            { id: user.id, role: user.role, institution_id: user.institution_id },
+            process.env.JWT_SECRET || 'secret',
+            { expiresIn: '24h' }
+        );
+
+        res.json({
+            token,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                institution_id: user.institution_id
+            }
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+const register = async (req, res) => {
+    try {
+        const { name, email, password, role, institution_id } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const user = await prisma.users.create({
+            data: {
+                name,
+                email,
+                password_hash: hashedPassword,
+                role: role || 'STUDENT',
+                institution_id: parseInt(institution_id)
+            }
+        });
+
+        res.status(201).json({
+            message: 'User created successfully',
+            user: { id: user.id, name: user.name, email: user.email, role: user.role }
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+module.exports = { login, register };

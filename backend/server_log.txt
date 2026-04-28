@@ -1,0 +1,66 @@
+[dotenv@17.3.1] injecting env (3) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+⚠️ Using Prisma Mock for server stability
+Server running on port 5002
+Connected to PostgreSQL Database
+[OTP SENT] To: test@example.com -> OTP: 362195
+[Login Attempt] Email: beetsplay@gmail.com
+Connected to PostgreSQL Database
+[Login Info] User found: false
+[Login Failed] User not found: beetsplay@gmail.com
+Connected to PostgreSQL Database
+[OTP SENT] To: beetsplay@gmail.com -> OTP: 547270
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+[OTP SENT] To: beetsplay@gmail.com -> OTP: 981307
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+[OTP SENT] To: beetsplay@gmail.com -> OTP: 762330
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+[Login Attempt] Email: beetsplay@gmail.com
+Connected to PostgreSQL Database
+[Login Info] User found: true
+[Login Info] Comparing password for: beetsplay@gmail.com
+[Login Info] Password valid: true
+[Login Info] Generating token...
+[Login Success] Token generated for: beetsplay@gmail.com
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+[Login Attempt] Email: beetsplay@gmail.com
+Connected to PostgreSQL Database
+[Login Info] User found: true
+[Login Info] Comparing password for: beetsplay@gmail.com
+[Login Info] Password valid: false
+[Login Failed] Incorrect password for: beetsplay@gmail.com
+[Login Attempt] Email: beetsplay@gmail.com
+Connected to PostgreSQL Database
+[Login Info] User found: true
+[Login Info] Comparing password for: beetsplay@gmail.com
+[Login Info] Password valid: true
+[Login Info] Generating token...
+[Login Success] Token generated for: beetsplay@gmail.com
+Falling back to raw SQL for analytics
+Falling back to raw SQL for classes list
+Falling back to raw SQL for analytics
+Falling back to raw SQL for classes list
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database
+Connected to PostgreSQL Database

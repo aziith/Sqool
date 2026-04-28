@@ -1,0 +1,21 @@
+USERS SCHEMA:
+id: integer
+institution_id: integer
+role: character varying
+name: character varying
+email: character varying
+password_hash: character varying
+created_at: timestamp without time zone
+phone: character varying
+
+INSTITUTIONS SCHEMA:
+id: integer
+name: character varying
+subdomain: character varying
+subscription_plan: character varying
+created_at: timestamp without time zone
+email: character varying
+phone: character varying
+address: text
+plan: character varying
+is_active: boolean

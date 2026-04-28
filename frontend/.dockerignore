@@ -1,0 +1,11 @@
+# Frontend build artifacts
+node_modules
+dist
+build
+.git
+.env
+README.md
+build.log
+lint.json
+error.txt
+package-lock.json

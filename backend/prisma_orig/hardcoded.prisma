@@ -1,0 +1,12 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:Rexxdb%4012@localhost:5432/attendx"
+}
+
+model Test {
+  id Int @id @default(autoincrement())
+}

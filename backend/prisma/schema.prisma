@@ -1,0 +1,140 @@
+// ============================================================
+//   Smart Campus Manager — Prisma Schema
+//   Database : PostgreSQL
+//   ORM      : Prisma
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  TEACHER
+  STUDENT
+}
+
+enum Gender {
+  M
+  F
+  OTHER
+}
+
+enum AdmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  PAID
+}
+
+// ─────────────────────────────────────────────
+// CORE MODELS (Multi-Tenant)
+// ─────────────────────────────────────────────
+
+model Institutions {
+  id                Int      @id @default(autoincrement())
+  name              String
+  subdomain         String   @unique
+  logo_url          String?
+  subscription_plan String   @default("basic")
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+
+  users      Users[]
+  students   Students[]
+  admissions Admissions[]
+
+  @@map("institutions")
+}
+
+model Users {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String   @unique
+  password_hash  String
+  role           Role     @default(STUDENT)
+  phone          String?
+  isActive       Boolean  @default(true)
+  institution_id Int?
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  institution  Institutions? @relation(fields: [institution_id], references: [id])
+  students     Students?
+
+  @@index([email])
+  @@index([role])
+  @@map("users")
+}
+
+model Students {
+  id                Int      @id @default(autoincrement())
+  user_id           Int      @unique
+  institution_id    Int
+  enrollment_number String   @unique
+  application_no    String?
+  class_name        String?
+  section           String?  @default("A")
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+
+  user        Users        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  institution Institutions @relation(fields: [institution_id], references: [id])
+
+  @@index([institution_id])
+  @@map("students")
+}
+
+model Admissions {
+  id                    Int             @id @default(autoincrement())
+  institution_id        Int
+  applicant_name        String
+  email                 String
+  parent_name           String?
+  parent_phone          String?
+  class_applied         String?
+  gender                String?         @default("M")
+  application_no        String?         @unique
+  status                AdmissionStatus @default(PENDING)
+  registration_fee_paid Boolean         @default(false)
+  address               String?
+  current_address       String?
+  guardian_id_proof     String?
+  student_id_proof      String?
+  created_at            DateTime        @default(now())
+  updated_at            DateTime        @updatedAt
+
+  institution Institutions @relation(fields: [institution_id], references: [id])
+
+  @@index([status])
+  @@index([institution_id])
+  @@map("admissions")
+}
+
+
+// ─────────────────────────────────────────────
+// LEGACY / EXTRA MODELS (Simplified or Kept for consistency if needed)
+// ─────────────────────────────────────────────
+
+model EnrolledStudent {
+  id              String   @id @default(cuid())
+  name            String
+  gender          String?
+  class           String?
+  admission_no    String?  @unique
+  institution_id  Int?
+  created_at      DateTime @default(now())
+
+  @@map("enrolled_students_v2")
+}
+

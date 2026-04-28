@@ -1,0 +1,31 @@
+{
+  "exams": [
+    {
+      "id": 1,
+      "name": "Mid-Term 2025",
+      "start_date": null,
+      "end_date": null,
+      "created_at": "2026-03-13T11:43:36.345Z"
+    },
+    {
+      "id": 2,
+      "name": "Math",
+      "start_date": "2026-03-14T18:30:00.000Z",
+      "end_date": "2026-03-19T18:30:00.000Z",
+      "created_at": "2026-03-13T11:59:12.051Z"
+    },
+    {
+      "id": 3,
+      "name": "Math",
+      "start_date": "2026-03-12T18:30:00.000Z",
+      "end_date": "2026-03-17T18:30:00.000Z",
+      "created_at": "2026-03-13T12:00:29.675Z"
+    }
+  ],
+  "now": "2026-03-13T12:07:01.430Z",
+  "counts": {
+    "upcoming": "1",
+    "completed": "0",
+    "ongoing": "1"
+  }
+}
