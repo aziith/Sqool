@@ -123,7 +123,7 @@ function FloatingCardWrapper({ children, className }) {
 // --- Main Landing Page ---
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#FFFBF0] text-slate-900 overflow-hidden relative font-sans">
+    <div className="min-h-screen bg-[#FFFFFF] text-slate-900 overflow-hidden relative font-sans">
       <BackgroundEffects />
 
       <style dangerouslySetInnerHTML={{

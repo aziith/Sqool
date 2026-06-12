@@ -51,7 +51,7 @@ export default function LibraryDashboard() {
 
     return (
         <motion.div 
-            className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFBF0] min-h-screen font-['Inter']"
+            className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFFFF] min-h-screen font-['Inter']"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -217,7 +217,7 @@ function StatCard({ title, value, icon, color }) {
 
 function LibrarySkeletonLoader() {
     return (
-        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFBF0] min-h-screen">
+        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFFFF] min-h-screen">
             {/* Header Skeleton */}
             <div className="flex justify-between items-center bg-white p-6 rounded-[2rem] border border-slate-100">
                 <div className="flex items-center gap-4">

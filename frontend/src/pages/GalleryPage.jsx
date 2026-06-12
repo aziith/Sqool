@@ -65,7 +65,7 @@ export default function GalleryPage() {
     if (loading) return <GallerySkeletonLoader />;
 
     return (
-        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFBF0] font-['Inter']">
+        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFFFF] font-['Inter']">
             
             {/* Main Header / Top Section */}
             {!activeAlbum && (
@@ -346,7 +346,7 @@ export default function GalleryPage() {
 
 function GallerySkeletonLoader() {
     return (
-        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFBF0]">
+        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFFFF]">
             <div className="flex justify-between items-center bg-white p-6 rounded-[2.5rem] border border-slate-100 mb-10">
                 <div className="flex gap-4 items-center">
                     <div className="w-14 h-14 bg-slate-200 rounded-2xl animate-pulse"></div>

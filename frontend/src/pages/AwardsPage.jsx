@@ -87,7 +87,7 @@ export default function AwardsPage() {
     if (loading) return <AwardsSkeletonLoader />;
 
     return (
-        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFBF0] min-h-screen font-['Inter'] flex flex-col">
+        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFFFF] min-h-screen font-['Inter'] flex flex-col">
             
             {/* Header section */}
             <motion.header 
@@ -354,7 +354,7 @@ function StatCard({ title, value, icon, color, isText }) {
 
 function AwardsSkeletonLoader() {
     return (
-        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFBF0]">
+        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFFFF]">
             <div className="flex justify-between items-center bg-white p-6 rounded-[2.5rem] border border-slate-100 mb-8">
                 <div className="flex gap-4 items-center">
                     <div className="w-14 h-14 bg-amber-100 rounded-2xl animate-pulse"></div>

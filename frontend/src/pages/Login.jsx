@@ -85,7 +85,7 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen flex" style={{ background: '#FFFBF0' }}>
+        <div className="min-h-screen flex" style={{ background: '#FFFFFF' }}>
             {/* Left Panel - Yellow Theme from Register Page */}
             <div className="hidden lg:flex flex-col items-center justify-center flex-1 relative overflow-hidden p-12"
                 style={{ background: 'linear-gradient(145deg, #FFF8DC 0%, #FDEAA8 50%, #FDD96E 100%)' }}>

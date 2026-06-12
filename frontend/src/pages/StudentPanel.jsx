@@ -101,7 +101,7 @@ export default function StudentPanel() {
                             ) : todaySchedule.length > 0 ? (
                                 todaySchedule.map((period) => (
                                     <div key={period.id} className="flex items-center gap-4 px-6 py-4 transition-colors"
-                                        onMouseEnter={e => e.currentTarget.style.background = '#FFFBF0'}
+                                        onMouseEnter={e => e.currentTarget.style.background = '#FFFFFF'}
                                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                                         <div className="w-1 h-12 rounded-full shrink-0" style={{ background: '#F59E0B' }}></div>
                                         <div className="flex-1 text-left">

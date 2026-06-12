@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    Bus, Users, Map, Navigation, MapPin, Search, Plus, Filter, 
-    MoreVertical, Navigation2, Clock, AlertCircle, FileText, ChevronRight 
+import {
+    Bus, Users, Map, Navigation, MapPin, Search, Plus, Filter,
+    MoreVertical, Navigation2, Clock, AlertCircle, FileText, ChevronRight
 } from 'lucide-react';
 
 export default function TransportPage() {
@@ -30,13 +30,13 @@ export default function TransportPage() {
     ];
 
     const routes = [
-        { 
-            id: 'RT-A', name: 'City Center Express', 
+        {
+            id: 'RT-A', name: 'City Center Express',
             stops: ['School Campus', 'Central Plaza', 'Metro Station A', 'City Center'],
             distance: '12 km', duration: '45 mins'
         },
-        { 
-            id: 'RT-B', name: 'West End Loop', 
+        {
+            id: 'RT-B', name: 'West End Loop',
             stops: ['School Campus', 'West Gate', 'Shopping Mall', 'Residential Blocks'],
             distance: '18 km', duration: '55 mins'
         }
@@ -60,10 +60,10 @@ export default function TransportPage() {
     if (loading) return <TransportSkeletonLoader />;
 
     return (
-        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFBF0] min-h-screen font-['Inter']">
-            
+        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFFFF] min-h-screen font-['Inter']">
+
             {/* Header section */}
-            <motion.header 
+            <motion.header
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white p-6 rounded-[2.5rem] border border-[#FDEE8A] shadow-sm"
@@ -80,14 +80,13 @@ export default function TransportPage() {
 
                 <div className="flex gap-2">
                     {['dashboard', 'vehicles', 'routes'].map(tab => (
-                        <button 
+                        <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all capitalize ${
-                                activeTab === tab 
-                                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-200' 
-                                : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
-                            }`}
+                            className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all capitalize ${activeTab === tab
+                                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-200'
+                                    : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
+                                }`}
                         >
                             {tab}
                         </button>
@@ -98,7 +97,7 @@ export default function TransportPage() {
             <AnimatePresence mode="wait">
                 {activeTab === 'dashboard' && (
                     <motion.div key="dashboard" variants={containerVariants} initial="hidden" animate="visible" exit="hidden" className="space-y-8">
-                        
+
                         {/* 1. TOP DASHBOARD (Stats Cards) */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <StatCard title="Total Vehicles" value={stats.totalVehicles} icon={<Bus size={20} />} color="blue" />
@@ -109,7 +108,7 @@ export default function TransportPage() {
 
                         {/* Middle Section: Map & Lists */}
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            
+
                             {/* 2. LIVE MAP (Mock Implementation) */}
                             <motion.div variants={itemVariants} className="lg:col-span-2 bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden flex flex-col relative min-h-[400px]">
                                 <div className="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-slate-100 flex items-center gap-3">
@@ -122,12 +121,12 @@ export default function TransportPage() {
                                         <Filter size={18} />
                                     </button>
                                 </div>
-                                
+
                                 {/* Mock Map Background (Grid Pattern) */}
                                 <div className="flex-1 bg-[#EEF2F6] relative overflow-hidden flex items-center justify-center map-bg-pattern">
                                     {/* Mock Map Image / Vector representation */}
                                     <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTM5LjUgMzkuNUMzOS41IDM5LjUgMzkuNSAzOS41IDM5LjUgMzkuNVoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+Cjwvc3ZnPg==')]"></div>
-                                    
+
                                     {/* Animated Bus Markers */}
                                     <MapMarker top="30%" left="40%" delay="0s" status="Running" label="BUS-01" />
                                     <MapMarker top="60%" left="70%" delay="2s" status="Running" label="BUS-02" />
@@ -144,7 +143,7 @@ export default function TransportPage() {
 
                             {/* Sidebar / Quick Actions & Alerts */}
                             <motion.div variants={itemVariants} className="space-y-6">
-                                
+
                                 {/* Admin Actions */}
                                 {canManage && (
                                     <div className="bg-emerald-600 rounded-[2rem] p-6 text-white shadow-xl shadow-emerald-500/20 relative overflow-hidden">
@@ -237,10 +236,10 @@ export default function TransportPage() {
                                     </div>
                                     <div className="text-right">
                                         <div className="text-sm font-bold text-slate-700">{rt.distance}</div>
-                                        <div className="text-xs font-semibold text-slate-400 flex items-center gap-1 mt-1"><Clock size={12}/> {rt.duration}</div>
+                                        <div className="text-xs font-semibold text-slate-400 flex items-center gap-1 mt-1"><Clock size={12} /> {rt.duration}</div>
                                     </div>
                                 </div>
-                                
+
                                 {/* Timeline UI */}
                                 <div className="relative pl-4 space-y-6 mt-8 before:absolute before:inset-y-2 before:left-5 before:w-0.5 before:bg-slate-100">
                                     {rt.stops.map((stop, i) => (
@@ -268,10 +267,10 @@ export default function TransportPage() {
                 {showAssignModal && canManage && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
                         <div className="bg-white p-8 rounded-3xl w-full max-w-md shadow-2xl relative">
-                            <button onClick={() => setShowAssignModal(false)} className="absolute top-4 right-4 p-2 text-slate-400 hover:bg-slate-100 rounded-full transition"><X size={18}/></button>
+                            <button onClick={() => setShowAssignModal(false)} className="absolute top-4 right-4 p-2 text-slate-400 hover:bg-slate-100 rounded-full transition"><X size={18} /></button>
                             <h2 className="text-xl font-black mb-1 text-slate-800">Assign Transport</h2>
                             <p className="text-xs text-slate-400 font-bold mb-6">Link students to specific bus routes</p>
-                            
+
                             <div className="space-y-4">
                                 <div>
                                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Student Search</label>
@@ -303,19 +302,17 @@ export default function TransportPage() {
 // Helper Components
 function StatCard({ title, value, icon, color, isActive }) {
     return (
-        <motion.div 
-            whileHover={{ y: -4, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)' }} 
-            className={`p-6 rounded-[2rem] border transition-all flex items-center justify-between ${
-                isActive ? `bg-${color}-600 border-${color}-600 text-white shadow-xl shadow-${color}-500/20` : 'bg-white border-slate-100 text-slate-800 shadow-sm'
-            }`}
+        <motion.div
+            whileHover={{ y: -4, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)' }}
+            className={`p-6 rounded-[2rem] border transition-all flex items-center justify-between ${isActive ? `bg-${color}-600 border-${color}-600 text-white shadow-xl shadow-${color}-500/20` : 'bg-white border-slate-100 text-slate-800 shadow-sm'
+                }`}
         >
             <div>
                 <p className={`text-[10px] font-black uppercase tracking-[0.2em] mb-1 ${isActive ? `text-${color}-200` : 'text-slate-400'}`}>{title}</p>
                 <h2 className="text-3xl font-black tracking-tighter">{value}</h2>
             </div>
-            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-inner ${
-                isActive ? 'bg-white/20 text-white' : `bg-${color}-50 text-${color}-600`
-            }`}>
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-inner ${isActive ? 'bg-white/20 text-white' : `bg-${color}-50 text-${color}-600`
+                }`}>
                 {icon}
             </div>
         </motion.div>
@@ -354,7 +351,7 @@ function MapMarker({ top, left, delay, status, label }) {
     const isRunning = status === 'Running';
     const color = isRunning ? 'bg-emerald-500' : status === 'Delayed' ? 'bg-amber-500' : 'bg-rose-500';
     return (
-        <motion.div 
+        <motion.div
             className="absolute flex flex-col items-center group cursor-pointer"
             style={{ top, left }}
             animate={isRunning ? { y: [0, -5, 0] } : {}}
@@ -376,7 +373,7 @@ function MapMarker({ top, left, delay, status, label }) {
 
 function TransportSkeletonLoader() {
     return (
-        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFBF0]">
+        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFFFF]">
             <div className="flex justify-between items-center bg-white p-6 rounded-[2.5rem] border border-slate-100 mb-8">
                 <div className="flex gap-4 items-center">
                     <div className="w-14 h-14 bg-slate-200 rounded-2xl animate-pulse"></div>
@@ -384,7 +381,7 @@ function TransportSkeletonLoader() {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                {[1,2,3,4].map(i => <div key={i} className="bg-white h-28 rounded-[2rem] border border-slate-100 animate-pulse"></div>)}
+                {[1, 2, 3, 4].map(i => <div key={i} className="bg-white h-28 rounded-[2rem] border border-slate-100 animate-pulse"></div>)}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 bg-white h-[400px] rounded-[2rem] border border-slate-100 animate-pulse"></div>

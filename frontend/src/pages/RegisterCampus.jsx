@@ -94,7 +94,7 @@ export default function RegisterCampus() {
     };
 
     return (
-        <div className="min-h-screen flex" style={{ background: '#FFFBF0' }}>
+        <div className="min-h-screen flex" style={{ background: '#FFFFFF' }}>
             
             {/* Left Side: Brand Panel */}
             <div className="hidden lg:flex flex-col items-center justify-center flex-1 relative overflow-hidden p-12"

@@ -150,7 +150,7 @@ const ExamManagement = () => {
 
             {/* List */}
             <div className="bg-white rounded-[2rem] shadow-xl shadow-indigo-50/50 border border-[#FDE68A] overflow-hidden">
-                <div className="p-6 border-b border-[#FEF3C7] bg-[#FFFBF0]/50 flex items-center justify-between">
+                <div className="p-6 border-b border-[#FEF3C7] bg-[#FFFFFF]/50 flex items-center justify-between">
                     <div className="flex items-center gap-4 flex-1 max-w-md">
                         <div className="relative w-full">
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
@@ -185,7 +185,7 @@ const ExamManagement = () => {
                                 </tr>
                             )}
                             {exams.map(exam => (
-                                <tr key={exam.id} className="hover:bg-[#FFFBF0]/50 transition-colors group">
+                                <tr key={exam.id} className="hover:bg-[#FFFFFF]/50 transition-colors group">
                                     <td className="px-8 py-6">
                                         <div className="font-black text-[#1e3a8a] text-lg leading-tight">{exam.subject_name || exam.name}</div>
                                         <div className="text-sm text-slate-400 mt-1 font-medium">{exam.description || 'General Academic Session'}</div>
@@ -251,7 +251,7 @@ const ExamManagement = () => {
                 <div className="fixed inset-0 bg-[#0F172A]/40 backdrop-blur-sm flex items-center justify-center p-6 z-[100] animate-in fade-in duration-300">
                     <div className="bg-white rounded-[2.5rem] w-full max-w-xl p-10 shadow-2xl border border-white relative overflow-hidden animate-in zoom-in-95 duration-300">
                         {/* Decorative background */}
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-[#FFFBF0] rounded-full -mr-20 -mt-20 z-0" />
+                        <div className="absolute top-0 right-0 w-40 h-40 bg-[#FFFFFF] rounded-full -mr-20 -mt-20 z-0" />
 
                         <div className="relative z-10">
                             <div className="flex justify-between items-center mb-8">

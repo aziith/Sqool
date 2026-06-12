@@ -9,7 +9,7 @@ const ExamsPage = () => {
     const canManage = ['ADMIN', 'SUPER_ADMIN', 'TEACHER'].includes(userRole);
 
     return (
-        <div className="flex flex-col h-full" style={{ background: '#FFFBF0' }}>
+        <div className="flex flex-col h-full" style={{ background: '#FFFFFF' }}>
             {/* Tabs Header */}
             <div className="bg-white/80 backdrop-blur-md sticky top-0 z-30 px-8 pt-6 border-b border-[#FDE68A] shadow-sm">
                 <div className="flex items-end gap-10">

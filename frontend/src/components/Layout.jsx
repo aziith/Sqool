@@ -85,52 +85,38 @@ export default function Layout() {
     const rc = roleColors[userRole] || roleColors.STUDENT;
 
     return (
-        <div className="flex h-screen" style={{ background: '#FFFBF0' }}>
+        <div className="flex h-screen" style={{ background: '#f8fafc' }}>
             {/* Sidebar */}
             <aside className="hidden md:flex flex-col w-64" style={{
-                background: '#FFFFFF',
-                borderRight: '1px solid #FDE68A',
-                boxShadow: '2px 0 16px rgba(253,230,138,0.15)'
+                background: '#f0f9ff',
+                borderRight: '1px solid #e2e8f0',
+                boxShadow: '2px 0 16px rgba(226,232,240,0.5)'
             }}>
-                {/* Logo */}
-                <div className="flex items-center gap-3 px-6 py-5" style={{ borderBottom: '1px solid #FEF3C7' }}>
-                    <img src={logoImg} alt="Sqool" className="w-9 h-9 object-contain" />
-                    <span className="text-2xl font-black tracking-tighter" style={{ color: '#1e3a8a' }}>Sqool</span>
-                </div>
-
-                {/* School / Institution Info */}
-                <div className="px-4 py-4" style={{ borderBottom: '1px solid #FEF3C7' }}>
+                {/* School / Institution Info Card */}
+                <div className="px-4 py-6" style={{ borderBottom: '1px solid #e0e7ff' }}>
                     <button
                         onClick={() => navigate('/dashboard/profile')}
-                        className="w-full text-left transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                        className="w-full flex flex-col items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98]"
                         style={{
-                            background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-                            borderRadius: '16px',
-                            padding: '14px',
-                            position: 'relative',
-                            overflow: 'hidden',
+                            background: 'transparent',
+                            borderRadius: '24px',
+                            padding: '16px',
                             border: 'none',
-                            cursor: 'pointer'
+                            cursor: 'pointer',
                         }}
                     >
-                        {/* Decorative glow */}
-                        <div style={{
-                            position: 'absolute', top: '-20px', right: '-20px',
-                            width: '70px', height: '70px', borderRadius: '50%',
-                            background: 'rgba(255,255,255,0.08)'
-                        }} />
-                        <div className="flex items-center gap-3" style={{ position: 'relative', zIndex: 1 }}>
+                        <div className="flex flex-col items-center gap-4" style={{ width: '100%' }}>
                             {/* Avatar / Logo */}
                             <div style={{
-                                width: '48px', height: '48px', borderRadius: '12px',
-                                background: institutionLogo ? 'transparent' : 'rgba(255,255,255,0.2)',
-                                backdropFilter: institutionLogo ? 'none' : 'blur(8px)',
-                                border: '2px solid rgba(255,255,255,0.3)',
+                                width: '72px', height: '72px', borderRadius: '50%',
+                                background: institutionLogo ? 'transparent' : '#f8fafc',
+                                border: '2px solid #e2e8f0',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: '20px', fontWeight: '900', color: '#ffffff',
+                                fontSize: '28px', fontWeight: '900', color: '#1e3a8a',
                                 flexShrink: 0,
                                 textTransform: 'uppercase',
-                                overflow: 'hidden'
+                                overflow: 'hidden',
+                                boxShadow: 'none'
                             }}>
                                 {institutionLogo ? (
                                     <img src={institutionLogo} alt="logo" className="w-full h-full object-cover" />
@@ -138,33 +124,29 @@ export default function Layout() {
                                     displayName.charAt(0)
                                 )}
                             </div>
-                            <div style={{ flex: 1, minWidth: 0 }}>
+                            
+                            <div className="flex flex-col items-center w-full">
                                 <p style={{
-                                    color: '#ffffff',
+                                    color: '#1e293b',
                                     fontWeight: '800',
-                                    fontSize: '1.05rem',
+                                    fontSize: '1.1rem',
                                     letterSpacing: '-0.3px',
                                     display: '-webkit-box',
                                     WebkitLineClamp: 2,
                                     WebkitBoxOrient: 'vertical',
                                     overflow: 'hidden',
                                     lineHeight: 1.2,
-                                    marginBottom: '6px',
+                                    marginBottom: '4px',
                                     wordBreak: 'break-word',
+                                    textAlign: 'center'
                                 }}>{displayName}</p>
-                                <span style={{
-                                    display: 'inline-flex', alignItems: 'center', gap: '4px',
-                                    background: 'rgba(255,255,255,0.18)',
-                                    borderRadius: '20px',
-                                    padding: '2px 8px',
+                                <p style={{
+                                    color: '#64748b',
                                     fontSize: '0.65rem',
                                     fontWeight: '700',
-                                    color: '#E0F2FE',
                                     letterSpacing: '0.5px',
-                                }}>
-                                    <span style={{ width: '5px', height: '5px', background: '#4ade80', borderRadius: '50%', display: 'inline-block' }} />
-                                    {userRole.replace('_', ' ')}
-                                </span>
+                                    textTransform: 'uppercase',
+                                }}>Powered by InstiFlow</p>
                             </div>
                         </div>
                     </button>
@@ -187,7 +169,7 @@ export default function Layout() {
                                             fontWeight: isActive ? '700' : '500',
                                             fontSize: '0.8125rem',
                                         }}
-                                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = '#FEF3C7'; e.currentTarget.style.color = '#1e3a8a'; } }}
+                                        onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = '#e0f2fe'; e.currentTarget.style.color = '#1e3a8a'; } }}
                                         onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#475569'; } }}
                                     >
                                         <Icon size={17} />
@@ -200,20 +182,48 @@ export default function Layout() {
                 </nav>
 
                 {/* Logout */}
-                <div className="p-4" style={{ borderTop: '1px solid #FEF3C7' }}>
+                <div className="p-4" style={{ borderTop: '1px solid #e0e7ff', background: 'transparent' }}>
                     <button onClick={handleLogout}
-                        className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl transition-all text-sm font-semibold"
-                        style={{ color: '#DC2626' }}
-                        onMouseEnter={e => { e.currentTarget.style.background = '#FEE2E2'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}>
-                        <LogOut size={17} />
-                        Logout
+                        className="flex items-center justify-between w-full px-4 py-4 rounded-2xl transition-transform hover:scale-[1.02] active:scale-[0.98] group relative overflow-hidden"
+                        style={{
+                            background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+                            color: '#ffffff',
+                            border: 'none',
+                            boxShadow: '0 10px 25px -5px rgba(59, 130, 246, 0.4)',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        {/* Decorative glow */}
+                        <div style={{
+                            position: 'absolute', top: '-10px', right: '-10px',
+                            width: '60px', height: '60px', borderRadius: '50%',
+                            background: 'rgba(255,255,255,0.1)'
+                        }} />
+                        
+                        <div className="flex items-center gap-3 relative z-10">
+                            <LogOut size={18} />
+                            <span className="font-bold text-sm">Logout</span>
+                        </div>
+                        <span style={{
+                            display: 'inline-flex', alignItems: 'center', gap: '4px',
+                            background: 'rgba(255,255,255,0.2)',
+                            borderRadius: '20px',
+                            padding: '2px 8px',
+                            fontSize: '0.65rem',
+                            fontWeight: '800',
+                            color: '#ffffff',
+                            letterSpacing: '0.5px',
+                            transition: 'all 0.2s'
+                        }} className="relative z-10 group-hover:bg-white/30">
+                            <span style={{ width: '4px', height: '4px', background: '#4ade80', borderRadius: '50%', display: 'inline-block' }} />
+                            {userRole.replace('_', ' ')}
+                        </span>
                     </button>
                 </div>
             </aside>
 
             {/* Main content */}
-            <main className="flex-1 overflow-y-auto" style={{ background: '#FFFBF0' }}>
+            <main className="flex-1 overflow-y-auto" style={{ background: '#f8fafc' }}>
                 <Outlet />
             </main>
         </div>

@@ -63,7 +63,7 @@ export default function FeesPage() {
     if (loading) return <FeesSkeletonLoader />;
 
     return (
-        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFBF0] min-h-screen font-['Inter']">
+        <div className="p-8 max-w-7xl mx-auto space-y-8 bg-[#FFFFFF] min-h-screen font-['Inter']">
             {/* Header section */}
             <motion.header 
                 initial={{ opacity: 0, y: -20 }}
@@ -393,7 +393,7 @@ const StatusBadge = ({ status, isOverdue }) => {
 
 function FeesSkeletonLoader() {
     return (
-        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFBF0]">
+        <div className="p-8 max-w-7xl mx-auto min-h-screen bg-[#FFFFFF]">
             <div className="h-28 bg-white border border-slate-100 rounded-[2.5rem] mb-8 animate-pulse"></div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 {[1,2,3,4].map(i => <div key={i} className="bg-white h-32 rounded-[2rem] border border-slate-100 animate-pulse"></div>)}
